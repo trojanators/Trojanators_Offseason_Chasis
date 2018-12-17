@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -27,12 +28,12 @@ public class OI {
   public static PowerDistributionPanel pdp = new PowerDistributionPanel(RobotMap.pdpCAN);
   public static Joystick controller = new Joystick(RobotMap.controllerPort);
 
-  public static WPI_VictorSPX leftFrontDriveMotor = new WPI_VictorSPX(RobotMap.leftFrontDrivePWM);
-  public static WPI_VictorSPX leftCenterDriveMotor = new WPI_VictorSPX(RobotMap.leftCenterDrivePWM);
-  public static WPI_VictorSPX leftBackDriveMotor = new WPI_VictorSPX(RobotMap.leftBackDrivePWM);
+  public static WPI_TalonSRX leftFrontDriveMotor = new WPI_TalonSRX(RobotMap.leftFrontDrivePWM);
+  public static WPI_TalonSRX leftCenterDriveMotor = new WPI_TalonSRX(RobotMap.leftCenterDrivePWM);
+  public static WPI_TalonSRX leftBackDriveMotor = new WPI_TalonSRX(RobotMap.leftBackDrivePWM);
   public static WPI_VictorSPX rightFrontDriveMotor = new WPI_VictorSPX(RobotMap.rightFrontDrivePWM);
-  public static WPI_VictorSPX rightCenterDriveMotor = new WPI_VictorSPX(RobotMap.rightCenterDrivePWM);
-  public static Spark rightBackDriveMotor = new Spark(RobotMap.rightBackDrivePWM);
+  public static WPI_TalonSRX rightCenterDriveMotor = new WPI_TalonSRX(RobotMap.rightCenterDrivePWM);
+  public static WPI_TalonSRX rightBackDriveMotor = new WPI_TalonSRX(RobotMap.rightBackDrivePWM);
 
   public static SpeedControllerGroup leftDriveGroup = new SpeedControllerGroup(leftFrontDriveMotor, leftCenterDriveMotor, leftBackDriveMotor);
   public static SpeedControllerGroup rightDriveGroup = new SpeedControllerGroup(rightFrontDriveMotor, rightCenterDriveMotor, rightBackDriveMotor);
