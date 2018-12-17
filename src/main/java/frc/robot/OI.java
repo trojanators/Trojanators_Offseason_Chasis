@@ -12,6 +12,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -23,7 +24,7 @@ import frc.robot.OI;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-  public static PowerDistributionPanel pdp = new PowerDistributionPanel(RobotMap.pdpCAN)
+  public static PowerDistributionPanel pdp = new PowerDistributionPanel(RobotMap.pdpCAN);
   public static Joystick controller = new Joystick(RobotMap.controllerPort);
 
   public static WPI_VictorSPX leftFrontDriveMotor = new WPI_VictorSPX(RobotMap.leftFrontDrivePWM);

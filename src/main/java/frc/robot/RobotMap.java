@@ -8,6 +8,7 @@
 package frc.robot;
 
 public class RobotMap {
+  public static int pdpCAN = 0;
   public static int controllerPort = 0;
 
   public static int leftFrontDrivePWM = 0;
