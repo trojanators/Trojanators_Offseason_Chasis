@@ -23,6 +23,7 @@ import frc.robot.OI;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+  public static PowerDistributionPanel pdp = new PowerDistributionPanel(RobotMap.pdpCAN)
   public static Joystick controller = new Joystick(RobotMap.controllerPort);
 
   public static WPI_VictorSPX leftFrontDriveMotor = new WPI_VictorSPX(RobotMap.leftFrontDrivePWM);
