@@ -1,5 +1,6 @@
-package frc.robot;
+package frc.robot.log;
 
+import frc.robot.OI;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -45,21 +46,21 @@ public abstract class log extends Command{
         SmartDashboard.putString("","");
         SmartDashboard.putBoolean("shift-isActive", OI.shiftSolenoid.getPCMSolenoidVoltageFault());
         // starts and prints log to file 
-            loggingtofile.consoleLog("======================================================");
-            loggingtofile.consoleLog("|                   ROBO LOG                         |");
-            loggingtofile.consoleLog("======================================================");
-            loggingtofile.consoleLog();
-            loggingtofile.consoleLog("Date", date);
-            loggingtofile.consoleLog();
-            loggingtofile.consoleLog("Power",current);
-            loggingtofile.consoleLog();
-            loggingtofile.consoleLog("controller x",OI.controller.getRawAxis(1) );
-            loggingtofile.consoleLog();
-            loggingtofile.consoleLog("controller 4",OI.controller.getRawAxis(4) );
-            loggingtofile.consoleLog();
-            loggingtofile.consoleLog("shift-isActive", OI.shiftSolenoid.getPCMSolenoidVoltageFault());
+            loggingToFile.consoleLog("======================================================");
+            loggingToFile.consoleLog("|                   ROBO LOG                         |");
+            loggingToFile.consoleLog("======================================================");
+            loggingToFile.consoleLog();
+            loggingToFile.consoleLog("Date", date);
+            loggingToFile.consoleLog();
+            loggingToFile.consoleLog("Power",current);
+            loggingToFile.consoleLog();
+            loggingToFile.consoleLog("controller x",OI.controller.getRawAxis(1) );
+            loggingToFile.consoleLog();
+            loggingToFile.consoleLog("controller 4",OI.controller.getRawAxis(4) );
+            loggingToFile.consoleLog();
+            loggingToFile.consoleLog("shift-isActive", OI.shiftSolenoid.getPCMSolenoidVoltageFault());
         while(RobotState.isDisabled()){
-            loggingtofile.consoleLog("netlog","Disabled");
+            loggingToFile.consoleLog("netlog","Disabled");
             end();
         }
     }
@@ -68,7 +69,7 @@ public abstract class log extends Command{
     @Override
     protected void end() {
         SmartDashboard.putString("GOOD By","Log is now stoped");
-        loggingtofile.consoleLog("Stoped","netlog");
+        loggingToFile.consoleLog("Stoped","netlog");
         isFinished();
     }
     @Override

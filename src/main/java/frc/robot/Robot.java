@@ -8,11 +8,15 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import java.util.Timer;
+import java.util.Timer.scheduleAtFixedRate;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.log.loggingToFile;
+import frc.robot.log.logTask;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Relay;
@@ -27,8 +31,9 @@ import edu.wpi.first.wpilibj.Relay;
 public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
-  Command m_logCommand;
   Command m_autonomousCommand;
+  logTask task = new logTask();
+  Timer timer = new Timer();
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   /**
@@ -41,6 +46,8 @@ public class Robot extends TimedRobot {
     m_chooser.addDefault("Default Auto", new ExampleCommand());
     // chooser.addObject("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
+    timer.scheduleAtFixedRate(task, 0, 1000);
+
   }
 
   /**
@@ -134,7 +141,7 @@ public class Robot extends TimedRobot {
       } else {
       OI.shiftSolenoid.set(DoubleSolenoid.Value.kReverse);
       }
-      loggingtofile.consoleLog("TELOP","ACTIVE");
+      loggingToFile.consoleLog("TELOP","ACTIVE");
 
   }
 

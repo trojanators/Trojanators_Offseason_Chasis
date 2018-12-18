@@ -1,12 +1,11 @@
-package frc.robot;
+package frc.robot.log;
 
+import frc.robot.Robot;
 import java.io.PrintStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintStream;
 import java.util.TimeZone;
-import java.util.function.Supplier;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
 import java.util.logging.FileHandler;
@@ -20,7 +19,7 @@ import java.util.logging.LogRecord;
 import edu.wpi.first.wpilibj.DriverStation;
 
 
-public class loggingtofile{
+public class loggingToFile{
     public static final PrintStream logPrintStream = new PrintStream(new LoggingOutputStream());
 
     /**
@@ -32,7 +31,7 @@ public class loggingtofile{
         
     // Private constructor means this class cannot be instantiated. All access is static.
         
-    private loggingtofile()
+    private loggingToFile()
     {
               
     }
