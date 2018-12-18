@@ -27,7 +27,7 @@ import edu.wpi.first.wpilibj.Relay;
 public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
-
+  Command m_logCommand;
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -121,6 +121,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    Command m_logcCommand;
     Scheduler.getInstance().run();
     OI.drive.arcadeDrive(-OI.controller.getRawAxis(1), -OI.controller.getRawAxis(4));
     if(OI.pressureSwitch.get() == false) {
@@ -133,6 +134,7 @@ public class Robot extends TimedRobot {
       } else {
       OI.shiftSolenoid.set(DoubleSolenoid.Value.kReverse);
       }
+      loggingtofile.consoleLog("TELOP","ACTIVE");
 
   }
 
